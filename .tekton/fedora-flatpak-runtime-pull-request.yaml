@@ -226,17 +226,21 @@ spec:
         value: $(tasks.clone-repository.results.commit)
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
+      - name: BUILDAH_EXTRA_ARGS
+        value: --skip-unused-stages=false
       runAfter:
       - prefetch-dependencies
       taskRef:
         params:
         - name: name
           value: buildah
-        - name: bundle
-          value: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:7e5f19d3aa233b9becf90d1ca01697486dc1acb1f1d6d2a0b8d1a1cc07c66249
-        - name: kind
-          value: task
-        resolver: bundles
+        - name: url
+          value: https://github.com/owtaylor/build-definitions.git
+        - name: revision
+          value: flatpak
+        - name: pathInRepo
+          value: task/buildah/0.1/buildah.yaml
+        resolver: git
       when:
       - input: $(tasks.init.results.build)
         operator: in
