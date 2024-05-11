@@ -28,7 +28,7 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/otaylor-tenant/flatpak-module-tools/fedora-flatpak-runtime:on-pr-{{revision}}
   - name: path-context
-    value: runtime
+    value: .
   - name: revision
     value: '{{revision}}'
   pipelineSpec:
