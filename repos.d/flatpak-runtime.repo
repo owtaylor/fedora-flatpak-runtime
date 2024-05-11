@@ -1,0 +1,10 @@
+[fedora]
+name=Fedora Flatpak Runtime Build
+baseurl=https://kojipkgs.fedoraproject.org/repos/f40-flatpak-runtime-build/latest/$basearch
+enabled=1
+countme=1
+metadata_expire=6h
+repo_gpgcheck=0
+type=rpm
+gpgcheck=0
+skip_if_unavailable=False
