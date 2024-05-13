@@ -229,8 +229,6 @@ spec:
           --device=/dev/random:/contents/dev/random
           --device=/dev/urandom:/contents/dev/urandom
           --device=/dev/zero:/contents/dev/zero
-      - name: CAPABILITIES:
-        value: ["SETFCAP", "MKNOD"]
       runAfter:
       - prefetch-dependencies
       taskRef:
