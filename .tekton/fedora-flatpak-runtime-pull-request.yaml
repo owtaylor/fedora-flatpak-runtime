@@ -228,7 +228,6 @@ spec:
         value: $(params.build-args-file)
       - name: BUILDAH_EXTRA_ARGS
         value: >-
-          --skip-unused-stages=false
           --device=/dev/null:/contents/dev/null
           --device=/dev/random:/contents/dev/random
           --device=/dev/urandom:/contents/dev/urandom

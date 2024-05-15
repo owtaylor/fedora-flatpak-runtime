@@ -15,3 +15,10 @@ RUN --mount=type=bind,rw,src=/contents,dst=/contents,from=install \
         --resultdir=/export
 
 FROM oci-archive:export/out.ociarchive
+
+# Need to reference the export stage here to force ordering.
+# But since we have to run something anyway, we might as well
+# cleanup after ourselves.
+RUN --mount=type=bind,from=export,target=/var/tmp \
+    --mount=type=bind,rw,z,src=export,dst=/export \
+    rm /export/out.ociarchive
