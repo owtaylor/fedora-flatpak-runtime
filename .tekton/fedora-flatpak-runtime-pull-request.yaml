@@ -234,13 +234,11 @@ spec:
         params:
         - name: name
           value: buildah
-        - name: url
-          value: https://github.com/owtaylor/build-definitions.git
-        - name: revision
-          value: flatpak
-        - name: pathInRepo
-          value: task/buildah/0.1/buildah.yaml
-        resolver: git
+        - name: bundle
+          value: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.1@sha256:1473e72a7e191a2480767616257f9dc72d3a189628897991b6255f2bf8f1bf69
+        - name: kind
+          value: task
+        resolver: bundles
       when:
       - input: $(tasks.init.results.build)
         operator: in
